@@ -1,0 +1,95 @@
+:root {
+    --primary-color: #010937;
+    --secondary-color: #1c31a5;
+    --special-color: #ff7752;
+
+    --text-color: #faf4e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color:var(--text-color);
+
+    font-family: 'Courier New', Courier, monospace;
+}
+
+main {
+    height: 97vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    border: none;
+    
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.container {
+    width: 20rem;
+
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+
+    background-color: var(--primary-color);
+
+    padding: 1rem;
+}
+
+.container__screen {
+    height: 8rem;
+    width: 100%;
+
+    display: flex;
+    justify-content: end;
+    align-items: end;
+
+    padding: 2rem;
+
+    background-color: var(--secondary-color);
+    
+    border-radius: 2rem;
+}
+
+.container__buttons {
+    width: 100%;
+    
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+}
+
+.container__btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    width: 4rem;
+    height: 4rem;
+
+    font-size: 2rem;
+
+    padding: 1rem;
+}
+
+.btn__result {
+    width: 100%;
+    
+    padding: 1rem;
+
+    font-size: 2rem;
+
+    background-color: var(--special-color);
+}
