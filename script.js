@@ -32,10 +32,13 @@ btns.forEach((el) => {
         const buttonValue = e.target.innerHTML
 
         if(buttonValue === "="){
-            calculeted(valueOne, valueTwo, operation)
-            valueOne = screen.innerText
-            valueTwo = ""
-            operation = "" 
+            if(valueOne !== "" && valueTwo !== ""){
+                calculeted(valueOne, valueTwo, operation)
+                valueOne = screen.innerText
+                valueTwo = ""
+                operation = "" 
+                return
+            }
             return
         }
 
@@ -51,4 +54,11 @@ btns.forEach((el) => {
             }
         }   
     })
+})
+
+const btnClear = document.querySelector("#btn__clear")
+btnClear.addEventListener("click", () => {
+    screen.innerText = 0
+    valueOne = ""
+    valueTwo = ""
 })
