@@ -51,14 +51,23 @@ button {
     width: 100%;
 
     display: flex;
+    flex-flow: column;
     justify-content: end;
     align-items: end;
 
     padding: 2rem;
 
+    position: relative;
+
     background-color: var(--secondary-color);
     
     border-radius: 2rem;
+}
+
+.container__screen > h4 {
+    position: absolute;
+
+    top: 1rem;
 }
 
 .container__buttons {

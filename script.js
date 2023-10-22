@@ -1,4 +1,5 @@
 const screen = document.querySelector("h2")
+const screenAcumulation = document.querySelector("h4")
 
 const calculeted = (value1, value2, operation) => {
     num1 = parseFloat(value1)
@@ -6,17 +7,15 @@ const calculeted = (value1, value2, operation) => {
 
     switch (operation){
         case "+":
-            screen.innerText = num1 + num2
-            break;
+            return num1 + num2
         case "-":
-            screen.innerText = num1 - num2
-            break;    
+            return num1 - num2   
         case "x":
-            screen.innerText = num1 * num2
-            break;    
+            return num1 * num2
+
         case "/":
-            screen.innerText = num1 / num2
-            break;      
+            return num1 / num2
+                  
     }
 
 }
@@ -33,7 +32,15 @@ btns.forEach((el) => {
 
         if(buttonValue === "="){
             if(valueOne !== "" && valueTwo !== ""){
-                calculeted(valueOne, valueTwo, operation)
+                const result = calculeted(valueOne, valueTwo, operation)
+                if (!Number.isInteger(result)) {
+                    screenAcumulation.innerText = result.toFixed(2)
+                    screen.innerText = result.toFixed(2)
+                    return
+                }
+                screenAcumulation.innerText = result
+                screen.innerText = result
+
                 valueOne = screen.innerText
                 valueTwo = ""
                 operation = "" 
@@ -44,13 +51,16 @@ btns.forEach((el) => {
 
         if(["+", "-", "x", "/"].includes(e.target.innerHTML)){
             operation = buttonValue
+            screenAcumulation.innerText = `${screenAcumulation.innerText} ${operation}`
         } else {
             if(operation !== ""){
             valueTwo += buttonValue
             screen.innerText = parseFloat(valueTwo)
+            screenAcumulation.innerText = `${valueOne} ${operation} ${valueTwo}`
             }else{
                 valueOne += buttonValue
                 screen.innerText = valueOne
+                screenAcumulation.innerText = valueOne
             }
         }   
     })
